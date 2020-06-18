@@ -1,0 +1,60 @@
+﻿@using firstApp.Model
+@model firstApp.Model.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <style>
+
+        input {
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>创建学生</h2>
+    @*<form method="post" asp-action="Create">
+                <div><label asp-for="FirstName"></label><input type="text" asp-for="FirstName" /><span asp-validation-for="FirstName"></span></div>
+                <div><label asp-for="LastName"></label><input type="text" asp-for="LastName" /><span asp-validation-for="LastName"></span></div>
+                <div><label asp-for="Birthday"></label><input type="date" asp-for="Birthday" /><span asp-validation-for="Birthday"></span></div>
+                <div><label asp-for="gender"></label>
+                    <select asp-for="gender" asp-items="Html.GetEnumSelectList<Gender>()">
+                    </select></div>
+                    <input type="submit" value="提交" />
+        </form>*@
+    <form method="post">
+        <div>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label asp-for="Birthday"></label>
+            <input asp-for="Birthday" type="date" />
+            <span asp-validation-for="Birthday"></span>
+        </div>
+
+        <div>
+            <label asp-for="gender"></label>
+            <select asp-for="gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+            <span asp-validation-for="gender"></span>
+        </div>
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <button type="submit" name="save">保存</button>
+    </form>
+</body>
+</html>

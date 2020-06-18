@@ -1,0 +1,27 @@
+﻿@using firstApp.ViewModels
+@model HomeIndexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student</title>
+</head>
+<body>
+    <ul>
+        @foreach (var s in Model.Students)
+        {
+            //<li><a href="/Home/Detail/@s.Id">@s.Id-@s.FullName-@s.Age</a></li>
+            //@s.Id @s.FullName @s.Age
+            //@Html.ActionLink("明细", "Detail", new { id = s.Id })<br />
+            @s.Id   @s.FullName   @s.Age
+            <a asp-action="Detail" asp-controller="" asp-route-id="@s.Id">明细</a> <a asp-action="Edit" asp-route-id="@s.Id">修改</a><br/>
+}
+    </ul>
+    <div><a asp-action="Create">创建一个学生</a></div>
+</body>
+</html>

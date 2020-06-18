@@ -1,0 +1,19 @@
+﻿@model firstApp.Model.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <h1>学生信息详情:</h1>
+    <div>学生Id:@Model.Id</div>
+    <div>学生姓名:@Model.FirstName @Model.LastName</div>
+    <div>学生性别:@Model.gender</div><a asp-action="Index">返回主页</a>
+</body>
+</html>

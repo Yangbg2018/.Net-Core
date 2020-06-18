@@ -1,0 +1,43 @@
+﻿@using firstApp.Model
+@model firstApp.Model.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <style>
+
+        input {
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>修改学生信息</h2>
+    <form method="post" asp-action="Edit">
+        <div><label for="FirstName">姓: <input type="text" asp-for="FirstName" /></label></div>
+        <div><label for="LastName">名: <input type="text" asp-for="LastName" /></label></div>
+        <div>出生日期: <input type="date" asp-for="Birthday" /></div>
+        <select asp-for="gender" asp-items="Html.GetEnumSelectList<Gender>()">
+        </select>
+        <input id="submit" type="submit" value="提交" />
+    </form>
+    <script>
+        var submit = document.getElementById("submit");
+        submit.onclick = function (e) {
+            var e = e || window.event;
+            var s = window.confirm("您确定要修改吗?");
+            if (s == false) {
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
