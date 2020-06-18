@@ -22,8 +22,8 @@ namespace firstApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddSingleton<IWelcomeService, WelcomeService>();
+            services.AddMvc(); //注入Mvc服务
+            services.AddSingleton<IWelcomeService, WelcomeService>();//注入自己写的服务、接口和实现类
             services.AddSingleton<IRespository<Student>,Respository>();
         }
 
@@ -33,7 +33,7 @@ namespace firstApp
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); //开发环境，走这中间件，异常页面
             }
             else
             {
@@ -51,7 +51,7 @@ namespace firstApp
 
             //defaultfilesoptions options = new defaultfilesoptions();
             //options.defaultfilenames.clear();
-            //options.defaultfilenames.add("zidingyi.html");
+            //options.defaultfilenames.add("zidingyi.html");    //修改
             //app.usedefaultfiles();
             //app.usestaticfiles();
             //app.UseFileServer();
